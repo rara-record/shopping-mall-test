@@ -1,13 +1,17 @@
-// TODO: 장바구니 보여주기
+import CartView from '../components/cart/CartView';
+import useFetchCart from '../hooks/useFetchCart';
 
-import React from 'react';
+export default function CartPage() {
+  const { cart } = useFetchCart();
 
-function CartPage() {
+  if (!cart) {
+    return null;
+  }
+
   return (
     <div>
-      카트 페이지
+      <h2>장바구니</h2>
+      <CartView cart={cart} />
     </div>
   );
 }
-
-export default CartPage;
